@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         getWeatherInfo(cityName);
 //citname xD
         //commit 1 xD
+        //commit 2 xP
     }
 
     private String getCityName(double longitude, double latitude) {
