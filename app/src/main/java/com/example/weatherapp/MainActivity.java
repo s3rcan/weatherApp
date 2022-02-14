@@ -166,6 +166,16 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject forcastO = forecastObj.getJSONArray("forecastday").getJSONObject(0);
                     JSONArray hourArray = forcastO.getJSONArray("hour");
 
+                    for(int i=0; i<hourArray.length(); i++){
+                        JSONObject hourObj = hourArray.getJSONObject(i);
+                        String time = hourObj.getString("time");
+                        String temper = hourObj.getString("temp_c");
+                        String img = hourObj.getJSONObject("condition").getString("icon");
+                        String wind = hourObj.getString("wind_kph");
+                        weatherRVModalArrayList.add(new WeatherRVModal(time, temper, img, wind));
+                    }
+                    weatherRVAdapter.notifyDataSetChanged();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
