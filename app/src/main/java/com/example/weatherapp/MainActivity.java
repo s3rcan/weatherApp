@@ -29,7 +29,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
+import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -152,9 +154,17 @@ public class MainActivity extends AppCompatActivity {
                     int isDay = response.getJSONObject("current").getInt("is_day");
                     String condition = response.getJSONObject("current").getJSONObject("condition").getString("text");
                     String conditionIcon = response.getJSONObject("current").getJSONObject("condition").getString("icon");
+                    Picasso.get().load("http:".concat(conditionIcon)).into(iconIV);
+                    conditionTV.setText(condition);
+                    if(isDay==1){
+                        Picasso.get().load("https://i1.wp.com/www.ksnt.com/wp-content/uploads/sites/86/2016/03/sunshine_36366417_ver1.0-8.jpg?w=2000&ssl=1").into(backIV);
+                    }else{
+                        Picasso.get().load("https://thumbor.thedailymeal.com/E1su6jFghGSGh4GSFiPDYEfDf_c=/870x565/https://www.theactivetimes.com/sites/default/files/slideshows/109049/113637/03_Clear_moon.jpg").into(backIV);
+                    }
 
-                    //1:01:00
-                    //11dk
+                    JSONObject forecastObj = response.getJSONObject("forecast");
+                    JSONObject forcastO = forecastObj.getJSONArray("forecastday").getJSONObject(0);
+                    JSONArray hourArray = forcastO.getJSONArray("hour");
 
                 } catch (JSONException e) {
                     e.printStackTrace();
