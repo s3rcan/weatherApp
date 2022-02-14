@@ -154,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
                     String conditionIcon = response.getJSONObject("current").getJSONObject("condition").getString("icon");
 
                     //1:01:00
+                    //11dk
 
                 } catch (JSONException e) {
                     e.printStackTrace();
