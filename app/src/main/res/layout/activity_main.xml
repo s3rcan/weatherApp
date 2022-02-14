@@ -54,10 +54,12 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:id="@+id/idTILCity"
                 android:layout_margin="10dp"
                 android:layout_weight="4.5"
                 android:background="@android:color/transparent"
+                app:boxStrokeColor="@android:color/transparent"
                 android:hint="Enter City Name"
                 android:padding="5dp"
                 app:hintTextColor="@color/white"
