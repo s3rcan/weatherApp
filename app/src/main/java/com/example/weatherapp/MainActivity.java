@@ -95,8 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     @Override
@@ -186,7 +184,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Please enter valid city name..", Toast.LENGTH_SHORT).show();
             }
         });
-
         requestQueue.add(jsonObjectRequest);
     }
 }
